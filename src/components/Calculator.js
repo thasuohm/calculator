@@ -50,12 +50,12 @@ const Calculator = () => {
         (result[i] === "*" && i > 0) ||
         (result[i] === "/" && i > 0)
       ) {
-        cal1 = parseInt(result.slice(0, i));
+        cal1 = Number(result.slice(0, i));
         operand = result[i];
         last = i + 1;
       }
     }
-    setResult(String(cal1));
+    setResult(String(cal1.toFixed(2)));
   };
 
   return (
