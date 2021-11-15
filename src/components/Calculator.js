@@ -9,8 +9,10 @@ const Calculator = () => {
     let already = false;
     for (let i = 0; i < operand.length; i++) {
       if (
-        (result.indexOf(operand[i]) !== -1 && operand.indexOf(item) !== -1) ||
-        (result.length === 0 && operand.indexOf(item) !== -1)
+        (result.indexOf(operand[i]) !== -1 &&
+          operand.indexOf(item) !== -1 &&
+          result[0] !== "-") ||
+        (result.length === 0 && operand.indexOf(item) !== -1 && item !== "-")
       ) {
         already = true;
         break;
@@ -43,10 +45,10 @@ const Calculator = () => {
         operand = "";
       }
       if (
-        result[i] === "+" ||
-        result[i] === "-" ||
-        result[i] === "*" ||
-        result[i] === "/"
+        (result[i] === "+" && i > 0) ||
+        (result[i] === "-" && i > 0) ||
+        (result[i] === "*" && i > 0) ||
+        (result[i] === "/" && i > 0)
       ) {
         cal1 = parseInt(result.slice(0, i));
         operand = result[i];
