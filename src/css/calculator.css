@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
+
+.calculator-container {
+  border-color: #202124;
+  border-width: 50px 25px 75px 25px;
+  background-color: #202124;
+  border-style: solid;
+  width: 450px;
+  height: 375px;
+  border-radius: 20px;
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+}
+
+.result-zone {
+  background-color: whitesmoke;
+  padding: 8px 0;
+  margin: 0 auto;
+  padding-right: 10px;
+  display: flex;
+  width: 95%;
+  justify-content: right;
+  font-size: 40px;
+  border-radius: 10px;
+  min-height: 55px;
+  overflow: hidden;
+}
+
+.button-zone {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  position: absolute;
+  width: 100%;
+  bottom: -50px;
+  margin: 0 auto;
+}
+
+.button-zone > div {
+  margin: 9px 7px;
+  border-radius: 9px;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+  border-color: whitesmoke;
+  background-color: whitesmoke;
+  border-width: 1px;
+  font-size: 35px;
+  font-weight: 600;
+  color: #202124;
+}
+
+.equalButton {
+  cursor: pointer;
+  transition: 0.4s;
+  color: whitesmoke !important;
+  background-color: tomato !important;
+  border-color: tomato !important;
+}
+
+.button-zone > div:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  color: whitesmoke;
+  background-color: tomato;
+  border-color: tomato;
+}
+
+.equalButton:hover {
+  border-color: #003049 !important;
+  background-color: #003049 !important;
+}
