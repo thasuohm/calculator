@@ -12,7 +12,7 @@ const Calculator = () => {
         (result.indexOf(operand[i]) !== -1 &&
           operand.indexOf(item) !== -1 &&
           result[0] !== "-") ||
-        (result.length === 0 && operand.indexOf(item) !== -1 && item !== "-")
+        (result.length < 1 && operand.indexOf(item) !== -1 && item !== "-")
       ) {
         already = true;
         break;
@@ -25,6 +25,7 @@ const Calculator = () => {
 
   const getResult = () => {
     let cal1 = 0;
+    let mathOperand = ["+", "-", "*", "/"];
     let operand = "";
     let last = 0;
 
@@ -42,20 +43,15 @@ const Calculator = () => {
         if (operand === "/") {
           cal1 = cal1 / result.slice(last, result.length);
         }
-        operand = "";
+        setResult(String(cal1.toFixed(2)));
+        return;
       }
-      if (
-        (result[i] === "+" && i > 0) ||
-        (result[i] === "-" && i > 0) ||
-        (result[i] === "*" && i > 0) ||
-        (result[i] === "/" && i > 0)
-      ) {
+      if (mathOperand.indexOf(result[i]) !== -1 && i > 0) {
         cal1 = Number(result.slice(0, i));
         operand = result[i];
         last = i + 1;
       }
     }
-    setResult(String(cal1.toFixed(2)));
   };
 
   return (
